@@ -1,7 +1,7 @@
 
 <template>
    <header class="content-title">   
-        <h1>Header</h1>
+        <h1>Fanli Header</h1>
     </header>
 </template>
 
@@ -14,6 +14,7 @@ export default {
 <style scoped>
     .content-title {
         text-align: center;
+        color: darkgreen;
     }
     .content-title h1 {
         margin-top: 30px;
