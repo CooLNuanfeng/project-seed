@@ -1,8 +1,9 @@
-# project-seed
-Vue+webpack+es6 种子项目
+# {{name}}
+
+## {{description}}
 
 ## 步骤
 
 ```javascript
-    npm install 
+    npm run dev
 ```
