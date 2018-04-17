@@ -1,0 +1,17 @@
+.mt100 {
+    margin-top: 100px;
+}
+.orange {
+    color: orange;
+}
+
+body {
+    background: #f6f6f6;
+}
+.center {
+    text-align: center;
+}
+/* 用于测试postcss */
+.test {
+    transform: translateX(30px)
+}
