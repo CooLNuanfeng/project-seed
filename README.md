@@ -1,9 +1,3 @@
-# {{name}}
+# fanli 脚手架模板
 
-## {{description}}
-
-## 步骤
-
-```javascript
-    npm run dev
-```
+Vue+webpack+es6 种子项目

@@ -8,7 +8,7 @@ const outputDir = path.resolve(__dirname, '../dist/');
 
 const webpackBaseConf = {
     entry: {
-        vendor: ['vue', 'vue-router'],
+        vendor: ['vue'{{#if router}},'vue-router'{{/if}}{{#if store}},"vuex"{{/if}}],
         index: path.join(__dirname,'pages/src/index' ,'main.js'),
         page1: path.join(__dirname,'pages/src/page1' ,'main.js'),
         page2: path.join(__dirname,'pages/src/page2' ,'main.js'),
