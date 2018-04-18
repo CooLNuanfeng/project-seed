@@ -39,7 +39,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: darkred;
+  color:#333;
   margin-top: 60px;
 }
 .content-font {

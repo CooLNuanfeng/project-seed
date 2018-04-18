@@ -34,11 +34,21 @@ const webpackBaseConf = {
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['env']
+                  }
+                }
+            },
+            {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 options: {
-                  limit: 10000,
-                  name: '/img/[name].[hash:7].[ext]'
+                limit: 10000,
+                name: 'img/[name].[hash:7].[ext]'
                 }
             }
         ]

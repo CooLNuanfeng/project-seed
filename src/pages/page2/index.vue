@@ -19,6 +19,8 @@ export default {
         color: royalblue;
     }
     .logo {
+        margin: 20px auto;
+        display: block;
         width: 100px;
     }   
 </style>
