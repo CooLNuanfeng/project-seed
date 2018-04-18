@@ -100,6 +100,7 @@ Vue+webpack+es6 种子项目
 ## 有待完善
 
 1. 将img文件夹放入项目目录下
+1. common文件夹命名
 1. 将vendor文件夹，放入子项目目录下
 1. 将base.js、base.css全部放入common文件夹中
 1. 按需加载

@@ -80,4 +80,4 @@ const webpackConfig = merge(webpackBaseConf, {
 })
 
 
-module.exports = webpackConfig;
+module.exports = webpackBaseConf;
