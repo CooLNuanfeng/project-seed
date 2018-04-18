@@ -53,7 +53,7 @@ const webpackConfig = merge(webpackBaseConf, {
         new CleanWebpackPlugin(
             ['dist/*'],
             {
-                root: __dirname,
+                root: path.resolve(__dirname, '..'),
                 verbose: true,
                 dry: false
             }

@@ -1,5 +1,5 @@
 <template>
-    <footer class="mt100 orange footer-fonts">footer</footer>
+    <footer class="mt100 orange footer-fonts">Footer</footer>
 </template>
 
 <script>

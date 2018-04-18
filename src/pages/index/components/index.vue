@@ -1,7 +1,9 @@
 <template>
-  <p>
-      this is index page!!!!
-  </p>
+    <div>
+        <p>
+        this is index page!!!!
+    </p>
+    </div>
 </template>
 
 <script>
