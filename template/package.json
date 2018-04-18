@@ -9,8 +9,8 @@
     "build": "webpack --config build/webpack.prod.conf.js"
   },
   "dependencies": [
-    "vue",{{#if router}}
-    "vue-router",{{/if}}{{#if store}}
+    "vue"{{#if router}},
+    "vue-router"{{/if}}{{#if store}},
     "vuex"{{/if}}
   ],
   "devDependencies": [
