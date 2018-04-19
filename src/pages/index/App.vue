@@ -3,7 +3,7 @@
     <div class="app">
         <img class="logo" src="@/assets/images/logo.png">
         <Header></Header>
-        <a href="/page2" class="center">查看单页</a>
+        <a href="/page1" class="center">查看单页</a>
         <div class="center mt50">
             <router-link to="/router1">Go to router1</router-link>
             <router-link to="/router2">Go to router2</router-link>

@@ -1,18 +1,39 @@
-'use strict'
-const path = require('path')
-const webpack = require('webpack')
-const merge = require('webpack-merge')
-const webpackBaseConf = require('./webpack.base.conf');
+const webpack = require('webpack');
+const path = require('path');
+const utils = require('./utils');
+const entryArray = require('./webpack.fanli.conf');
+
+
 const ExtractPlugin = require('extract-text-webpack-plugin');
 //删除dist文件夹
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const webpackConfig = merge(webpackBaseConf, {
-    output: {
-        path: path.resolve(__dirname, '../dist')
-    },
+
+function resolve (dir) {
+    return path.join(__dirname,'..',dir)
+}
+
+// 定义生产打包基础配置
+const prodBaseConf = {
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js',
+          '@': resolve('src'),
+        }
+      },
     module: {
-        rules: [
+          rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['env']
+                  }
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -46,12 +67,19 @@ const webpackConfig = merge(webpackBaseConf, {
                         'less-loader'
                     ]
                 })
-            }
-        ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(
-            ['dist/*'],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                limit: 10000,
+                name: 'img/[name].[hash:7].[ext]'
+                }
+            },
+          ]
+      },
+    plugins: [ 
+        new CleanWebpackPlugin(['dist/*'],
             {
                 root: path.resolve(__dirname, '..'),
                 verbose: true,
@@ -59,7 +87,7 @@ const webpackConfig = merge(webpackBaseConf, {
             }
         ),
         new ExtractPlugin({
-            filename: '[name]/css/[name].[hash:8].css',
+            filename: 'css/[name].[hash:8].css',
             allChunks: true
         })
     ],
@@ -77,7 +105,8 @@ const webpackConfig = merge(webpackBaseConf, {
         },
         runtimeChunk: false
     }
-})
+}
 
+const prodConf = utils.generateProdConf(entryArray, prodBaseConf);
 
-module.exports = webpackBaseConf;
+module.exports = prodConf;

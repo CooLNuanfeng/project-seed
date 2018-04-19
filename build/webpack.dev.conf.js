@@ -1,7 +1,29 @@
 const merge = require('webpack-merge');
-const webpackBaseConf = require('./webpack.base.conf');
+const webpack = require('webpack');
+const path = require('path');
+const utils = require('./utils');
+const entryArray = require('./webpack.fanli.conf');
 
-const webpackDevConf = merge(webpackBaseConf, {
+function resolve (dir) {
+    return path.join(__dirname,'..',dir)
+}
+
+
+const devBaseConf = utils.generateDevConf(entryArray);
+
+
+const webpackDevConf = merge(devBaseConf, {
+    output: {
+        filename: '[name]/js/[name].[hash:8].js',
+        path: path.resolve(__dirname,'../dist')
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js',
+          '@': resolve('src'),
+        }
+      },
     module: {
         rules: [
             {
@@ -23,6 +45,24 @@ const webpackDevConf = merge(webpackBaseConf, {
                         'postcss-loader',
                         'less-loader'
                     ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                  loader: 'babel-loader',
+                  options: {
+                    presets: ['env']
+                  }
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                limit: 10000,
+                name: 'img/[name].[hash:7].[ext]'
+                }
             }
         ]
     },
@@ -43,7 +83,7 @@ const webpackDevConf = merge(webpackBaseConf, {
         overlay: {
             errors: true
         }
-    }
+    },
 });
 
 module.exports = webpackDevConf;
