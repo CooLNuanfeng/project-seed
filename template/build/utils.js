@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 const outputDir = path.resolve(__dirname, '../dist/');
 const commonDir = path.join(__dirname, '..', '../common/');
 
-//生产生产环境基础配置
+//生成生产环境基础配置
 exports.generateProdConf = function (entrys, prodBaseConf) {
     const webpackProConf = []
     entrys.forEach((entrys) => {
