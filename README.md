@@ -79,18 +79,13 @@ Vue+webpack+es6 种子项目
 
 ## 使用步骤
 
-1. 安装依赖包
-
-```javascript
-    npm install
-```
-2. 使用dev-server开发
+1. 使用dev-server开发
 
 ``` javascript
     npm run dev
 ```
 
-3. 打包发布
+2. 打包发布
 
 ``` javascript
     npm run build
