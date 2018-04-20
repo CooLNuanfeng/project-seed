@@ -21,7 +21,7 @@
     "style-loader",
     "url-loader",
     "vue",
-    "vue-loader"{{#if router}},
+    "vue-loader",{{#if router}}
     "vue-router",{{/if}}{{#if store}}
     "vuex",{{/if}}
     "webpack",
@@ -32,7 +32,7 @@
     "cross-env",
     "css-loader",
     "extract-text-webpack-plugin",
-    "html-webpack-plugin"{{#if less}},
+    "html-webpack-plugin",{{#if less}}
     "less",
     "less-loader",{{/if}}
     "vue-template-compiler",

@@ -2,7 +2,7 @@
 
 ## {{description}}
 
-## 开发
+## 使用
 
 ```javascript
     cd {{story}}/{{name}}
